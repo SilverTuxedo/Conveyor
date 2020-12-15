@@ -1,6 +1,6 @@
 # Conveyor
 
-![Conveyor icon](\.github\images\conveyor-icon.png)
+![Conveyor icon](./.github/images/conveyor-icon.png)
 
 Conveyor is an Android app that echoes (repeats) notifications to make them more readable for smart devices, like smart watches.
 
@@ -28,27 +28,27 @@ The app was tested with Discord, Whatsapp and Telegram, but it has been designed
 
 This is the notification on my phone (completely legit conversation btw):
 
-![Discord notification](\.github\images\plain-notification.jpg)
+![Discord notification](./.github/images/plain-notification.jpg)
 
 Without conveyor, the notification on the watch will look like this:
 
-![Discord notification on watch](\.github\images\watch-normal.png)
+![Discord notification on watch](./.github/images/watch-normal.png)
 
 The name of the person who sent the message should appear in the title. However, the title is too long to display it. The actual text of the notification is really not clear. 
 
 This is the notification that Conveyor will send as an echo:
 
-![Conveyor notification](\.github\images\conveyor-notification.jpg)
+![Conveyor notification](./.github/images/conveyor-notification.jpg)
 
 And this is how it will look like on the watch:
 
-![Conveyor notification on watch](\.github\images\watch-conveyor.png)
+![Conveyor notification on watch](./.github/images/watch-conveyor.png)
 
 The names of the senders are clear, and the last message is displayed first.
 
 ## Screenshot
 
-![screenshot](\.github\images\screenshot.png)
+![screenshot](./.github/images/screenshot.png)
 
 Some devices allow you to hide notifications from specific apps on the lock screen. That, together with the option to clear notifications when you unlock your device, makes Conveyor notifications practically invisible! 
 
