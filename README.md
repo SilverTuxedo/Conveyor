@@ -1,6 +1,8 @@
 # Conveyor
 
-![Conveyor icon](./.github/images/conveyor-icon.png)
+<p align="center">
+<img src="./.github/images/conveyor-icon.png">
+</p>
 
 Conveyor is an Android app that echoes (repeats) notifications to make them more readable for smart devices, like smart watches.
 
