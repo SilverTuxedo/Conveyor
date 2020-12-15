@@ -2,14 +2,15 @@ name: Android CI
 
 on:
   push:
-    branches: [ "master", "dev" ]
+    branches: master
     tags:
       - "v*"
   pull_request:
-    branches: [ "master" ]
+    branches: "master"
 
 jobs:
   build:
+    name: Build APK
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
