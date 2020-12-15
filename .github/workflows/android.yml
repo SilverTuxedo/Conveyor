@@ -19,3 +19,8 @@ jobs:
         java-version: 1.8
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Archive build APK artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: apks
+          path: app/build/outputs/apk
