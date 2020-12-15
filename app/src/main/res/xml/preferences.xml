@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreferenceCompat
+        app:key="has_notification_access"
+        android:icon="@drawable/ic_baseline_notifications_active_24"
+        app:title="@string/notification_access_title"
+        app:summaryOff="@string/notification_access_description_off"
+        app:summaryOn="@string/notification_access_description_on"
+        app:singleLineTitle="false" />
+
+
+    <MultiSelectListPreference
+        app:key="selected_apps"
+        android:icon="@drawable/ic_baseline_apps_24"
+        app:title="@string/select_apps_title" />
+
+    <CheckBoxPreference
+        app:key="clear_notifications_on_unlock"
+        android:icon="@drawable/ic_baseline_clear_all_24"
+        app:title="@string/clear_notifications_on_unlock_title"
+        app:summary="@string/clear_notifications_on_unlock_description"
+        app:singleLineTitle="false" />
+
+    <CheckBoxPreference
+        app:key="no_notifications_while_unlocked"
+        android:icon="@drawable/ic_baseline_lock_open_24"
+        app:title="@string/no_notifications_while_unlocked_title"
+        app:summary="@string/no_notifications_while_unlocked_description"
+        app:dependency="clear_notifications_on_unlock"
+        app:singleLineTitle="false" />
+
+    <Preference
+        app:key="open_garmin_connect"
+        android:icon="@drawable/ic_baseline_open_in_new_24"
+        app:title="@string/open_garmin_connect"
+        app:singleLineTitle="false"
+        app:summary="@string/app_not_installed"
+        app:enabled="false" />
+
+</PreferenceScreen>

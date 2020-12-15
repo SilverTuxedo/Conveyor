@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Conveyor</string>
+    <string name="user_presence_service_description">Detects when you\'re present to automatically dismiss echo notifications when you\'re using your device</string>
+    <string name="notification_service_description">Listens to new notifications and sends echo notifications according to your preferences.</string>
+    <string name="notification_access_dialog_title">Notification access required</string>
+    <string name="notification_access_dialog_message">The app needs access to notifications sent on this device in order to read and echo them in a nicer format. Please enable notification access in Settings.</string>
+    <string name="notification_access_dialog_positive">Enable in Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="notification_access_missing_warning">The app won\'t work until permission to notification access is granted.</string>
+    <string name="notification_access_title">Notification access</string>
+    <string name="notification_access_description_off">Inactive, notifications are not processed</string>
+    <string name="notification_access_description_on">Notifications from the selected apps will be echoed</string>
+    <string name="select_apps_title">Select apps</string>
+    <string name="no_notifications_when_unlocked_description">Echo notifications will only exist when the device is locked. The original notifications will not be removed.</string>
+    <string name="no_notifications_when_unlocked_title">Remove notifications when device is unlocked</string>
+    <string name="selected_apps_indicator_title" translatable="false">Selected apps: %d</string>
+    <string name="open_garmin_connect">Open Garmin Connect</string>
+    <string name="garmin_connect_tutorial">Go to Settings > Notifications > App notifications, disable the apps you selected and enable this app instead.</string>
+    <string name="app_not_installed">App is not installed</string>
+    <string name="clear_notifications_on_unlock_title">Clear echo notifications on device unlock</string>
+    <string name="clear_notifications_on_unlock_description">Echo notifications will be automatically cleared when you unlock your device</string>
+    <string name="no_notifications_while_unlocked_title">Don\'t send notifications while device is unlocked</string>
+    <string name="no_notifications_while_unlocked_description">Echo notifications will only be sent while the device is locked</string>
+    <string name="disable_optimization_dialog_title">Disable battery optimization</string>
+    <string name="disable_optimization_dialog_message">For this app to work consistently in the background, you must disable battery optimization for it. Please locate this app in the settings and select \"Don\'t optimize\". If your device allows control over app autostart, please enable that as well.</string>
+    <string name="disable_optimization_dialog_positive">Open Settings</string>
+    <string name="battery_optimization_active_warning">Battery optimization will make this app unreliable.</string>
+</resources>
