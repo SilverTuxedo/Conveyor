@@ -54,3 +54,8 @@ The names of the senders are clear, and the last message is displayed first.
 
 Some devices allow you to hide notifications from specific apps on the lock screen. That, together with the option to clear notifications when you unlock your device, makes Conveyor notifications practically invisible! 
 
+## Download
+
+See the [Releases page](https://github.com/SilverTuxedo/Conveyor/releases). Download the APK to your device and install it.
+
+This app is not on the Play Store at the moment, so you may get a few warnings that I'm not a recognized publisher.
