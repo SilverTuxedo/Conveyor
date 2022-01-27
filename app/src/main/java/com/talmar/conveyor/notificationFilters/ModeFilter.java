@@ -40,11 +40,11 @@ public class ModeFilter implements INotificationFilter, SharedPreferences.OnShar
         }
 
         Conversation conversation = new Conversation(sbn.getNotification());
-        boolean hasMultipleAuthors = conversation.getAuthors().size() > 1;
+        boolean isGroupMessage = conversation.getAuthors().size() > 1 || conversation.hasTitle();
 
         boolean isAllowed = (
-                hasMultipleAuthors && m_echoingMode == EchoingMode.GROUPS_ONLY
-                || !hasMultipleAuthors && m_echoingMode == EchoingMode.DIRECT_MESSAGES_ONLY);
+                isGroupMessage && m_echoingMode == EchoingMode.GROUPS_ONLY
+                || !isGroupMessage && m_echoingMode == EchoingMode.DIRECT_MESSAGES_ONLY);
 
         return !isAllowed;
     }
