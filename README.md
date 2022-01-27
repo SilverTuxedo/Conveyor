@@ -24,6 +24,8 @@ By reading the notifications and resending them in a different format, Conveyor 
 
 Notifications from the app whose notifications are being reformatted and echoed should be disabled in the Garmin Connect app, so only the notification from *Conveyor* is passed to the smart device.
 
+Conveyor has 3 modes: It can echo all of the notifications for the selected apps (default), echo only group messages, or echo only direct messages. This way, your smartwatch can receive just a specific type of notifications from your apps. This feature is quite unique and works with any messaging app that sends structured notifications.
+
 The app was tested with Discord, Whatsapp and Telegram, but it has been designed work with **every** Android chat app. 
 
 ## Demo
