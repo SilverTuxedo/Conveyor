@@ -49,6 +49,14 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private Preference m_openGarminConnectPreference;
     private DropDownPreference m_modePreference;
 
+    private AlertDialog m_batteryOptimizationDialog;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        m_batteryOptimizationDialog = buildBatteryOptimizationAlertDialog();
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences, rootKey);
@@ -134,7 +142,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         String packageName = requireContext().getPackageName();
         PowerManager powerManager = (PowerManager) requireContext().getSystemService(Context.POWER_SERVICE);
         if (!powerManager.isIgnoringBatteryOptimizations(packageName)) {
-            buildBatteryOptimizationAlertDialog().show();
+            m_batteryOptimizationDialog.show();
         }
     }
 
