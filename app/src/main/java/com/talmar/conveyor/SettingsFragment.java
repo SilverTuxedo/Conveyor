@@ -40,7 +40,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             "com.facebook.orca", // Facebook Messenger
             "com.instagram.android", // Instagram
             "com.google.android.apps.messaging", // Messages (by Google)
-            "com.discord")); // Discord
+            "com.discord", // Discord
+            "org.thoughtcrime.securesms")); // Signal
 
     private SwitchPreferenceCompat m_hasNotificationAccessSwitch;
     private MultiSelectListPreference m_selectedAppsPreference;
