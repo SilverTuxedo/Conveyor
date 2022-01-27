@@ -8,7 +8,9 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.util.Pair;
 
+import androidx.annotation.Nullable;
 import androidx.preference.CheckBoxPreference;
+import androidx.preference.DropDownPreference;
 import androidx.preference.MultiSelectListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -22,6 +24,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
     private static final String ACTION_NOTIFICATION_LISTENER_SETTINGS = "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS";
@@ -43,6 +46,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private MultiSelectListPreference m_selectedAppsPreference;
     private CheckBoxPreference m_clearNotificationsOnUnlockCheckBox;
     private Preference m_openGarminConnectPreference;
+    private DropDownPreference m_modePreference;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -52,11 +56,13 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         m_selectedAppsPreference = findPreference("selected_apps");
         m_clearNotificationsOnUnlockCheckBox = findPreference("clear_notifications_on_unlock");
         m_openGarminConnectPreference = findPreference("open_garmin_connect");
+        m_modePreference = findPreference("mode");
 
         assert null != m_hasNotificationAccessSwitch;
         assert null != m_selectedAppsPreference;
         assert null != m_clearNotificationsOnUnlockCheckBox;
         assert null != m_openGarminConnectPreference;
+        assert null != m_modePreference;
 
         populateAppListPreference(m_selectedAppsPreference);
         pruneUninstalledAppsFromPreference(m_selectedAppsPreference);
@@ -87,6 +93,29 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             m_openGarminConnectPreference.setEnabled(true);
             m_openGarminConnectPreference.setSummary(R.string.garmin_connect_tutorial);
         }
+
+        populateModePreference(m_modePreference);
+        m_modePreference.setSummaryProvider(
+                (Preference.SummaryProvider<DropDownPreference>) preference -> {
+                    EchoingMode mode;
+                    try {
+                        mode = EchoingMode.valueOf(preference.getValue());
+                    } catch (IllegalArgumentException e) {
+                        mode = EchoingMode.ALL;
+                    }
+
+                    int resource = R.string.mode_all_notifications_description;
+                    switch (mode) {
+                        case GROUPS_ONLY:
+                            resource = R.string.mode_groups_only_description;
+                            break;
+                        case DIRECT_MESSAGES_ONLY:
+                            resource = R.string.mode_direct_only_description;
+                            break;
+                    }
+
+                    return getString(resource);
+                });
 
         syncPreferencesToSystemState();
     }
@@ -188,5 +217,18 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         Set<String> filteredValues = preference.getValues().stream().filter(installedApps::contains).collect(Collectors.toSet());
         preference.setValues(filteredValues);
+    }
+
+    private void populateModePreference(DropDownPreference preference) {
+        CharSequence[] entries = new CharSequence[3];
+        entries[0] = getString(R.string.mode_all_notifications);
+        entries[1] = getString(R.string.mode_groups_only);
+        entries[2] = getString(R.string.mode_direct_only);
+        preference.setEntryValues(Stream.of(EchoingMode.values()).map(EchoingMode::name).toArray(CharSequence[]::new));
+        preference.setEntries(entries);
+
+        if (preference.getValue() == null) {
+            preference.setValue(EchoingMode.ALL.name());
+        }
     }
 }

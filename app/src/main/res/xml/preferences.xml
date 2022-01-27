@@ -16,6 +16,12 @@
         android:icon="@drawable/ic_baseline_apps_24"
         app:title="@string/select_apps_title" />
 
+    <DropDownPreference
+        app:key="mode"
+        android:icon="@drawable/ic_baseline_build_24"
+        app:title="@string/select_mode_title"
+        app:summary="@string/mode_all_notifications_description" />
+
     <CheckBoxPreference
         app:key="clear_notifications_on_unlock"
         android:icon="@drawable/ic_baseline_clear_all_24"
