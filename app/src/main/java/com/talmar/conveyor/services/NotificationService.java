@@ -16,6 +16,7 @@ import com.talmar.conveyor.BuildConfig;
 import com.talmar.conveyor.NotificationEchoing;
 import com.talmar.conveyor.notificationFilters.CategoryFilter;
 import com.talmar.conveyor.notificationFilters.INotificationFilter;
+import com.talmar.conveyor.notificationFilters.ModeFilter;
 import com.talmar.conveyor.notificationFilters.NullContentFilter;
 import com.talmar.conveyor.notificationFilters.OwnNotificationFilter;
 import com.talmar.conveyor.notificationFilters.SelectedAppsFilter;
@@ -50,7 +51,8 @@ public class NotificationService extends NotificationListenerService {
                 new CategoryFilter(),
                 new NullContentFilter(),
                 new SelectedAppsFilter(sharedPreferences),
-                new UserPresenceFilter(this, sharedPreferences)
+                new UserPresenceFilter(this, sharedPreferences),
+                new ModeFilter(sharedPreferences)
         };
     }
 
