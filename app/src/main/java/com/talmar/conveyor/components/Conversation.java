@@ -15,6 +15,7 @@ import java.util.Set;
 
 public class Conversation {
     private String m_title;
+    private String m_title_raw;
     private List<Message> m_messages;
 
     /**
@@ -30,7 +31,8 @@ public class Conversation {
 
         Object titleObject = messagingStyleNotification.extras.get(Notification.EXTRA_CONVERSATION_TITLE);
         if (null != titleObject) {
-            m_title = titleObject.toString();
+            m_title_raw = titleObject.toString();
+            m_title = Conversation.removeMessagesCount(m_title_raw);
         }
 
         m_messages = new ArrayList<>();
@@ -106,5 +108,10 @@ public class Conversation {
         builder.append(" with ").append(m_messages.size()).append(" messages");
 
         return builder.toString();
+    }
+
+    @NonNull
+    public static String removeMessagesCount(@NonNull String title){
+        return title.replaceAll("\\s\\(\\d+\\smessages\\)", "");
     }
 }
