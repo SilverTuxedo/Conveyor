@@ -32,4 +32,5 @@
     <string name="mode_all_notifications_description">Echoing all notifications</string>
     <string name="mode_groups_only_description">Echoing group messages only</string>
     <string name="mode_direct_only_description">Echoing direct messages only</string>
+    <string name="select_titles_to_ignore">Select titles to ignore</string>
 </resources>

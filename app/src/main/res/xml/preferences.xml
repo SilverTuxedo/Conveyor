@@ -22,6 +22,11 @@
         app:title="@string/select_mode_title"
         app:summary="@string/mode_all_notifications_description" />
 
+    <EditTextPreference
+        app:icon="?android:attr/fingerprintAuthDrawable"
+        app:key="titles_to_ignore"
+        app:title="@string/select_titles_to_ignore" />
+
     <CheckBoxPreference
         app:key="clear_notifications_on_unlock"
         android:icon="@drawable/ic_baseline_clear_all_24"
