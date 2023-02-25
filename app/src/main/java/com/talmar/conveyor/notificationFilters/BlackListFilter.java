@@ -1,5 +1,6 @@
 package com.talmar.conveyor.notificationFilters;
 
+import android.app.Notification;
 import android.content.SharedPreferences;
 import android.service.notification.StatusBarNotification;
 
@@ -26,6 +27,16 @@ public class BlackListFilter implements INotificationFilter, SharedPreferences.O
 
     @Override
     public boolean shouldIgnoreNotification(@NonNull StatusBarNotification sbn) {
+
+        Notification notification = sbn.getNotification();
+        String notificationTemplate = notification.extras.getString(Notification.EXTRA_TEMPLATE);
+        boolean isMessagingStyle = Notification.MessagingStyle.class.getName().equals(notificationTemplate);
+
+        if (!isMessagingStyle) {
+            // This is not a messaging-style notification, meaning that we can't determine if it's
+            // a group or a DM. Ignore it.
+            return true;
+        }
 
         Conversation conversation = new Conversation(sbn.getNotification());
 
