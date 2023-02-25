@@ -30,7 +30,7 @@ public class BlackListFilter implements INotificationFilter, SharedPreferences.O
         Conversation conversation = new Conversation(sbn.getNotification());
 
         if (!conversation.hasTitle()) {
-            // no title, can blacklist. skip the check
+            // no title, can't blacklist. skip the check
             return false;
         }
 
