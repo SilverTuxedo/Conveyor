@@ -14,6 +14,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.talmar.conveyor.BuildConfig;
 import com.talmar.conveyor.NotificationEchoing;
+import com.talmar.conveyor.notificationFilters.BlackListFilter;
 import com.talmar.conveyor.notificationFilters.CategoryFilter;
 import com.talmar.conveyor.notificationFilters.INotificationFilter;
 import com.talmar.conveyor.notificationFilters.ModeFilter;
@@ -52,7 +53,8 @@ public class NotificationService extends NotificationListenerService {
                 new NullContentFilter(),
                 new SelectedAppsFilter(sharedPreferences),
                 new UserPresenceFilter(this, sharedPreferences),
-                new ModeFilter(sharedPreferences)
+                new ModeFilter(sharedPreferences),
+                new BlackListFilter(sharedPreferences),
         };
     }
 

@@ -11,6 +11,7 @@ import android.util.Pair;
 import androidx.annotation.Nullable;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.DropDownPreference;
+import androidx.preference.EditTextPreference;
 import androidx.preference.MultiSelectListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -48,6 +49,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private CheckBoxPreference m_clearNotificationsOnUnlockCheckBox;
     private Preference m_openGarminConnectPreference;
     private DropDownPreference m_modePreference;
+    private EditTextPreference m_titles_to_ignore;
 
     private AlertDialog m_batteryOptimizationDialog;
 
@@ -66,12 +68,14 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         m_clearNotificationsOnUnlockCheckBox = findPreference("clear_notifications_on_unlock");
         m_openGarminConnectPreference = findPreference("open_garmin_connect");
         m_modePreference = findPreference("mode");
+        m_titles_to_ignore = findPreference("titles_to_ignore");
 
         assert null != m_hasNotificationAccessSwitch;
         assert null != m_selectedAppsPreference;
         assert null != m_clearNotificationsOnUnlockCheckBox;
         assert null != m_openGarminConnectPreference;
         assert null != m_modePreference;
+        assert null != m_titles_to_ignore;
 
         populateAppListPreference(m_selectedAppsPreference);
         pruneUninstalledAppsFromPreference(m_selectedAppsPreference);
@@ -177,9 +181,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 });
         alertDialogBuilder.setNegativeButton(R.string.cancel,
                 (dialog, id) -> Snackbar.make(
-                        SettingsFragment.this.requireView(),
-                        R.string.notification_access_missing_warning,
-                        Snackbar.LENGTH_LONG)
+                                SettingsFragment.this.requireView(),
+                                R.string.notification_access_missing_warning,
+                                Snackbar.LENGTH_LONG)
                         .show());
         return alertDialogBuilder.create();
     }
